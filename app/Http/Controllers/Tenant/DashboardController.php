@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Tenant;
 
-use App\Company;
+use App\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index(Company $company)
+    public function index()
     {
-        $projects = $company->projects;
+        $projects = Project::all();
 
         return view('tenant.dashboard', compact('projects'));
     }
