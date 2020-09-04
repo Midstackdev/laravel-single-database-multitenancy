@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/{company}', 'Tenant\DashboardController@index')->name('company.index');
+Route::group(['middleware' => ['tenant']], function () {
+    Route::get('/projects', 'Tenant\ProjectController@index')->name('project.index');
+    Route::get('/{company}', 'Tenant\DashboardController@index')->name('company.index');
+});
+
