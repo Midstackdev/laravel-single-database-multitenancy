@@ -5,12 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Companies') }}</div>
+                <div class="card-header">{{ __('Dashboard for x') }}</div>
 
                 <div class="card-body">
                     <div class="list-group">   
-                        @foreach($companies as $company)
-                            <a href="/{{ $company->id }}" class="list-group-item">{{ $company->name }}</a>
+                        @foreach($projects as $project)
+                            <a href="/{{ $project->id }}" class="list-group-item">{{ $project->name }}</a>
                         @endforeach
                     </div>
                 </div>
