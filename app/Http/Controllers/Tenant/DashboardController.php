@@ -12,6 +12,8 @@ class DashboardController extends Controller
     {
         $projects = Project::all();
 
+        // dd(request()->tenant());
+
         return view('tenant.dashboard', compact('projects'));
     }
 }
