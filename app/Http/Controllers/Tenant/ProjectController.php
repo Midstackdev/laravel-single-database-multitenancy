@@ -8,8 +8,16 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function store(Request $request)
     {
-        dd(Project::all());
+        Project::create($request->all());
+
+        return back();
+    }
+
+
+    public function show(Project $project)
+    {
+        return view('tenant.projects.show', compact('project'));
     }
 }

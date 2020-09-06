@@ -17,6 +17,7 @@ class Tenant
      */
     public function handle($request, Closure $next)
     {
+        // dd($request);
         $tenant = $this->resolveTenant(
             $request->company ?: session()->get('tenant')
         );
